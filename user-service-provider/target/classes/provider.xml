@@ -6,6 +6,10 @@
 		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+    <!--dubbo-monitor-simple监控中心发现的配置-->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+    <!--<dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>-->
+
     <!-- 1.指定当前服务/应用的名字 同样的服务名字相同,不要和别的服务相同 -->
     <dubbo:application name="user-service-provider"></dubbo:application>
 

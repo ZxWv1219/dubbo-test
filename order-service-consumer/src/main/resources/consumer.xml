@@ -7,6 +7,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <!--dubbo-monitor-simple监控中心发现的配置-->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+    <!--<dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>-->
     <!--包扫描-->
     <context:component-scan base-package="com.zx.dubbotest.impl"/>
 
@@ -16,4 +21,6 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
     <!--调用远程暴露的服务，生成远程服务代理-->
     <dubbo:reference interface="com.zx.dubbotest.service.UserService" id="userService"></dubbo:reference>
+
+
 </beans>

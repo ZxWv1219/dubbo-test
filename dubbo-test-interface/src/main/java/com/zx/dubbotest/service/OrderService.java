@@ -1,5 +1,9 @@
 package com.zx.dubbotest.service;
 
+import com.zx.dubbotest.bean.UserAddress;
+
+import java.util.List;
+
 /**
  * @author ：Zx
  * @date ：2020/11/23 15:10
@@ -11,5 +15,5 @@ public interface OrderService {
      *
      * @param userId
      */
-    void initOrder(String userId);
+    List<UserAddress> initOrder(String userId);
 }
