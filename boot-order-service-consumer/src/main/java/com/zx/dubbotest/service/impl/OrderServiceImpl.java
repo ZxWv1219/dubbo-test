@@ -16,8 +16,11 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Reference
-    UserService userService;
+    /**
+     * version 调用版本,可用于灰度发布
+     */
+    @Reference(version = "2.0", stub = "com.zx.dubbotest.service.impl.UserServiceStub")
+    private UserService userService;
 
 
     /**

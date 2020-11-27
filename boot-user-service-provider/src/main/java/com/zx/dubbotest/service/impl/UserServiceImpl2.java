@@ -4,7 +4,6 @@ package com.zx.dubbotest.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.zx.dubbotest.bean.UserAddress;
 import com.zx.dubbotest.service.UserService;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -12,17 +11,13 @@ import java.util.List;
 
 
 /**
- * 使用@Service 暴露服务,使用@Reference 引用服务
- * 1.使用@EnableDubbo 开启注解的dubbo功能
- * 2.使用ImportResource导入xml方式
- * 3.使用注解api方式  @Configuration 方式 (推荐使用)
  * @author Zx
  * @date 2020/11/23 11:53
  * @modified By:
  */
-@Service(version = "1.0")
+@Service(version = "2.0")
 @Component
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl2 implements UserService {
     /**
      * 按照用户id返回所有的收货地址
      *
@@ -31,7 +26,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<UserAddress> getUserAddressList(String userId) {
-        System.out.println("UserServiceImpl old");
+        System.out.println("UserServiceImpl2 new");
 
         UserAddress address1 = new UserAddress()
                 .setId(1)
