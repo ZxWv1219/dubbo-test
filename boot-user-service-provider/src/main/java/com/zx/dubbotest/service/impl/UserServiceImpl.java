@@ -4,8 +4,7 @@ package com.zx.dubbotest.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.zx.dubbotest.bean.UserAddress;
 import com.zx.dubbotest.service.UserService;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,15 +12,28 @@ import java.util.List;
 
 /**
  * 使用@Service 暴露服务,使用@Reference 引用服务
- * 1.使用@EnableDubbo 开启注解的dubbo功能
+ * 1.使用@EnableDubbo 开启注解的dubbo功能(推荐使用)
  * 2.使用ImportResource导入xml方式
- * 3.使用注解api方式  @Configuration 方式 (推荐使用)
+ * 3.使用注解api方式  @Configuration 方式
+ *
  * @author Zx
  * @date 2020/11/23 11:53
  * @modified By:
  */
-@Service(version = "1.0")
-@Component
+
+
+//@Service(
+//        version = "${demo.service.version}",
+//        application = "${dubbo.application.id}",
+//        protocol = "${dubbo.protocol.id}",
+//        registry = "${dubbo.registry.id}"
+//        , parameters = {"sayHello.timeout", "3100", "sayHello2.timeout", "5000"}
+//)
+
+@Service(version = "1.0", parameters = {"getUserAddressList.timeout", "2000"})
+//@DubboService
+//@Service(version = "1.0")
+//@Component("UserServiceImpl")
 public class UserServiceImpl implements UserService {
     /**
      * 按照用户id返回所有的收货地址
@@ -32,6 +44,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserAddress> getUserAddressList(String userId) {
         System.out.println("UserServiceImpl old");
+//        try {
+//            Thread.sleep(3000);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         UserAddress address1 = new UserAddress()
                 .setId(1)
